@@ -7,8 +7,8 @@
   - [Demo1 Local In Output](#demo1-local-in-output)
   - [Demo2 Vars From Cmd Apply](#demo2-vars-from-cmd-apply)
   - [Demo2 Vars From Env Vars](#demo2-vars-from-env-vars)
-  - [Demo2 Vars From Tfvars File](#demo2-vars-from-tfvars-file)
-
+  - [Demo2 Vars From File Tfvars](#demo2-vars-from-file-tfvars)
+  - [Demo2 Vars From File Auto Tfvars](#demo2-vars-from-file-auto-tfvars)
 ---
 
 <a name="general-information" ></a>
@@ -47,9 +47,17 @@ Your text here.
 
 ---
 
-<a name="demo2-vars-from-tfvars-file" ></a>
+<a name="demo2-vars-from-file-tfvars" ></a>
 
-### Demo2 Vars From Tfvars File
+### Demo2 Vars From File Tfvars
+
+Your text here.
+
+---
+
+<a name="demo2-vars-from-file-auto-tfvars" ></a>
+
+### Demo2 Vars From File Auto Tfvars
 
 Your text here.
 

@@ -2,7 +2,7 @@
 # VARIABLES
 ##################################################################################
 
-variable "number_taken_from_tfvars_file" {
+variable "number_taken_from_file_auto_tfvars" {
   type = number
   # default = random_integer.random_int.result # Error: Variables not allowed. Variables may not be used here.
   # default = local.integer_randomized # Error: Variables not allowed. Variables may not be used here.
