@@ -1,4 +1,4 @@
-cd C:\Projects\PT_Demo_Terraform\src\demo2_vars-from-file-tfvars
+cd C:\Projects\PT_Demo_Terraform\src\demo2_vars-from-file-terraform-tfvars
 
 terraform destroy # Optional, if not first init.
 
@@ -12,4 +12,4 @@ terraform apply
 # 
 # Outputs:
 # 
-# output_number_taken_from_file_tfvars = 666
+# output_number_taken_from_file_terraform_tfvars = 666
