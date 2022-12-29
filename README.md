@@ -11,6 +11,7 @@
   - [Demo2 Vars From File Auto Tfvars](#demo2-vars-from-file-auto-tfvars)
   - [Demo2 Vars From File MyFile Tfvars](#demo2-vars-from-file-myfile-tfvars)
   - [Demo2 Vars From File Terraform Tfvars](#demo2-vars-from-file-terraform-tfvars)
+  - [Demo3 Provisioners Local Exec](#demo3-provisioners-local-exec)
 ---
 
 <a name="general-information" ></a>
@@ -25,7 +26,7 @@ PT_Demo_Terraform is a demo project to test Terraform.
 
 ## Workflow
 
-![Workflow](res/workflow.jpg)
+![Workflow](res/images/workflow.jpg)
 
 ---
 
@@ -81,5 +82,13 @@ Your text here.
 
 1. One must create a file named exactly `terraform.tfvars` - containing the values for variables.  
 2. `terraform apply` command takes the values from the `terraform.tfvars` file and apply those.
+
+---
+
+<a name="demo3-provisioners-local-exec" ></a>
+
+### Demo3 Provisioners Local Exec
+
+Your text here.
 
 ---
