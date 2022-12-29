@@ -3,6 +3,7 @@
 ## Content
 
 - [General Information](#general-information)
+- [Workflow](#workflow)
 - [Demos](#demos)
   - [Demo1 Local In Output](#demo1-local-in-output)
   - [Demo2 Vars From Cmd Apply](#demo2-vars-from-cmd-apply)
@@ -17,6 +18,14 @@
 ## General Information
 
 PT_Demo_Terraform is a demo project to test Terraform.
+
+---
+
+<a name="workflow" ></a>
+
+## Workflow
+
+![Workflow](res/workflow.jpg)
 
 ---
 
