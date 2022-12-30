@@ -13,5 +13,7 @@ terraform apply
 # Outputs:
 # 
 # output_local_integer_min = 4
-# output_local_integer_randomized = 90
+# output_local_integer_randomized = 47
+# output_local_string_formatted = "dev...load...prod"
+# output_local_string_fromfile = "This is just some text to be read by the local using a function."
 # output_local_string_tolower = "trololo"

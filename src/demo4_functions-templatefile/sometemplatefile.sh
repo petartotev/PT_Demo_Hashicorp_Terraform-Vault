@@ -1,0 +1,1 @@
+This is some ${test} to try to replace all occurrences of ${test} with some other word.

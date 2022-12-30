@@ -12,6 +12,7 @@
   - [Demo2 Vars From File MyFile Tfvars](#demo2-vars-from-file-myfile-tfvars)
   - [Demo2 Vars From File Terraform Tfvars](#demo2-vars-from-file-terraform-tfvars)
   - [Demo3 Provisioners Local Exec](#demo3-provisioners-local-exec)
+  - [Demo4 Functions Templatefile](#demo4-functions-templatefile)
 ---
 
 <a name="general-information" ></a>
@@ -88,6 +89,14 @@ Your text here.
 <a name="demo3-provisioners-local-exec" ></a>
 
 ### Demo3 Provisioners Local Exec
+
+Your text here.
+
+---
+
+<a name="demo4-functions-templatefile" ></a>
+
+### Demo4 Functions Templatefile
 
 Your text here.
 
