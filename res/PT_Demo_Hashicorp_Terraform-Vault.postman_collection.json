@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "062015a6-9326-48fb-8516-ff1c250d0233",
+		"name": "PT_Demo_Hashicorp_Terraform-Vault",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23140527"
+	},
+	"item": [
+		{
+			"name": "Get Secrets by Client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url-https-app}}/Secrets/byclient",
+					"host": [
+						"{{url-https-app}}"
+					],
+					"path": [
+						"Secrets",
+						"byclient"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-https-app}}/Secrets/byclient",
+							"host": [
+								"{{url-https-app}}"
+							],
+							"path": [
+								"Secrets",
+								"byclient"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 29 Dec 2023 18:28:36 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "myptsecretvalue"
+				}
+			]
+		},
+		{
+			"name": "Get Secrets by Config",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url-https-app}}/Secrets/byconfig",
+					"host": [
+						"{{url-https-app}}"
+					],
+					"path": [
+						"Secrets",
+						"byconfig"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK null",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-https-app}}/Secrets/byconfig",
+							"host": [
+								"{{url-https-app}}"
+							],
+							"path": [
+								"Secrets",
+								"byconfig"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 29 Dec 2023 18:29:36 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"secret\": null\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url-https-app",
+			"value": "https://localhost:7147",
+			"type": "string"
+		},
+		{
+			"key": "url-http-app",
+			"value": "http://localhost:5147",
+			"type": "string"
+		}
+	]
+}

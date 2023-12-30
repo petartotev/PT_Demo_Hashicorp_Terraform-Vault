@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Xb4bQqcR8FWOV9VoT2u/tPhH/dZPBOKKKXrIM3M/9PU=",
+  "Source": "DemoHashicorpVault.API",
+  "BasePath": "_content/DemoHashicorpVault.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
