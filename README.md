@@ -16,6 +16,7 @@
 - [Vault](#vault)
   - [Vault Initial Setup](#vault-initial-setup)
   - [Vault KV Secrets](#vault-kv-secrets)
+  - [Vault Database Secrets](#vault-database-secrets)
   - [Vault Cubbyhole Secrets (Optional)](#vault-cubbyhole-secrets-optional)
   - [.NET Web API Application Setup](#net-web-api-application-setup)
 - [Links](#links)
@@ -267,6 +268,57 @@ Key              Value
 myptsecretkey    myptsecretvalue
 ```
 
+### Vault Database Secrets
+
+[Database Secrets Engine](https://developer.hashicorp.com/vault/docs/secrets/databases/postgresql)
+
+0. 💡 You need to follow all steps described in the [PT_Demo_PostgreSQL](https://github.com/petartotev/PT_Demo_PostgreSQL) before storing the Vault database secret (postgres), including:
+
+```
+docker run --name postgrescntr -e POSTGRES_PASSWORD=test1234 -p 5432:5432 -d postgres
+```
+
+7. Enable the PostgreSQL database secrets engine:
+
+```
+vault secrets enable database
+```
+
+Output:
+```
+Success! Enabled the database secrets engine at: database/
+```
+
+8. Configure the PostgreSQL connection details:
+
+```
+vault write database/config/my-postgresql-database \
+  plugin_name=postgresql-database-plugin \
+  allowed_roles="my-role" \
+  connection_url="postgresql://{{username}}:{{password}}@localhost:5432/mydatabase?sslmode=disable" \
+  username="postgres" \
+  password="test1234"
+```
+
+Output:
+```
+Success! Data written to: database/config/my-postgresql-database
+```
+
+9. Create a role for PostgreSQL
+```
+vault write database/roles/my-role \
+  db_name=my-postgresql-database \
+  creation_statements="CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD '{{password}}' VALID UNTIL '{{expiration}}'; GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO \"{{name}}\";" \
+  default_ttl="1h" \
+  max_ttl="24h"
+```
+
+Output:
+```
+Success! Data written to: database/roles/my-role
+```
+
 ### Vault Cubbyhole Secrets (Optional)
 
 [Cubbyhole Secrets Engine](https://developer.hashicorp.com/vault/docs/secrets/cubbyhole)
@@ -424,3 +476,5 @@ namespace DemoHashicorpVault.API.Controllers
 - https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-first-secret
 - https://developer.hashicorp.com/vault/docs/secrets/kv
 - https://developer.hashicorp.com/vault/docs/secrets/cubbyhole
+- https://developer.hashicorp.com/vault/tutorials/app-integration/dotnet-httpclient
+- https://stackoverflow.com/questions/63878533/vault-error-server-gave-http-response-to-https-client

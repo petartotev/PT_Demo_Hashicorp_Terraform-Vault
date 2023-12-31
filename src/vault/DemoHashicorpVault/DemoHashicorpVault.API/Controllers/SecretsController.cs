@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using VaultSharp.V1.AuthMethods.Token;
 using VaultSharp.V1.Commons;
 using VaultSharp;
-using Microsoft.Extensions.Configuration;
+using VaultSharp.V1.SecretsEngines;
 
 namespace DemoHashicorpVault.API.Controllers;
 
@@ -10,12 +10,14 @@ namespace DemoHashicorpVault.API.Controllers;
 [Route("[controller]")]
 public class SecretsController : ControllerBase
 {
+    private readonly string _rootToken = "hvs.Q123H123n123WuVV123E123M";
+
     [HttpGet]
     [Route("kv/byclient")]
-    public async Task<IActionResult> Get()
+    public async Task<IActionResult> GetKeyValueSecretByClient()
     {
         // Initialize one of the several auth methods.
-        var tokenAuthMethodInfo = new TokenAuthMethodInfo("hvs.DhmJu2E6X38M1praaApLuH6q");
+        var tokenAuthMethodInfo = new TokenAuthMethodInfo(_rootToken);
 
         // Initialize settings. You can also set proxies, custom delegates etc. here.
         var vaultClientSettings = new VaultClientSettings("http://127.0.0.1:8200", tokenAuthMethodInfo);
@@ -31,5 +33,26 @@ public class SecretsController : ControllerBase
         }
 
         return NotFound();
+    }
+
+    [HttpGet]
+    [Route("database/byclient")]
+    public async Task<IActionResult> GetDatabaseSecretByClient()
+    {
+        // Initialize one of the several auth methods.
+        var tokenAuthMethodInfo = new TokenAuthMethodInfo(_rootToken);
+
+        // Initialize settings. You can also set proxies, custom delegates etc. here.
+        var vaultClientSettings = new VaultClientSettings("http://127.0.0.1:8200", tokenAuthMethodInfo);
+
+        IVaultClient vaultClient = new VaultClient(vaultClientSettings);
+
+        // Read dynamic database credentials from Vault
+        Secret<UsernamePasswordCredentials> databaseCredentials = await vaultClient.V1.Secrets.Database.GetCredentialsAsync("my-role");
+
+        // Use the dynamically generated username and password in your .NET application
+        var connectionString = $"Host=localhost;Port=5432;Database=mydatabase;Username={databaseCredentials.Data.Username};Password={databaseCredentials.Data.Password};Pooling=true;";
+
+        return Ok(connectionString);
     }
 }
